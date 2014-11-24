@@ -16,17 +16,22 @@ def pearson(user1,user2):
     klucze2 = user2.keys()
     udaloSiePorownac = False
     odleglosc=0
-    i=1
+    i=0
     l1=0
+    l2=0
+    l3=0
     m1=0
     m2=0
     for klucz in klucze1: 
         if klucz in user2.keys():
             udaloSiePorownac = True
-            l1 = l1 + (user2[klucz] * user1[klucz])
-            m1= m1 + ((user1[klucz]))**2
-            m2= m2 + ((user2[klucz]))**2
+            l1 = l1 + ((user2[klucz]) * (user1[klucz]))
+            l2= l2 +(user2[klucz])
+            l3= l3 +(user1[klucz])
+            m1= m1 + ((user1[klucz])**2)
+            m2= m2 + ((user2[klucz])**2)
             i=i+1
-    r=(l1-(l1/i))/((sqrt(m1-(m1/i)))*(sqrt(m2-(m2/i))))
+    r=(l1-((l2*l3)/i))/((sqrt(m1-((l3**2)/i)))*(sqrt(m2-((l2**2)/i))))
     return r
+print pearson(users["Ania"], users["Bonia"])
 print pearson(users["Ania"], users["Bonia"])
